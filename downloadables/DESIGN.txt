@@ -1,0 +1,12 @@
+a. Our custom level is designed for the portal gun, consisting of 4 puzzle rooms. Link needs to figure out how to use the portal gun to enter from the entrance, collect any keys that may be present, and reach the exit.
+
+b. The special mechanism we've designed is the portal gun, which can shoot two portals that attach to walls and connect directly to each other. This allows players to pass through areas that were previously inaccessible, such as water tiles.
+
+c. In this dungeon, the puzzle elements are not heavily emphasized, and the main obstacles blocking the player's progress are locked doors between rooms. However, the addition of the portal gun introduces more possibilities for maze design. Inside the rooms, there can be obstacles that players cannot pass, requiring them to fully utilize the mechanics of the portal gun to reach previously inaccessible areas and escape the room. In summary, the portal gun increases the proportion of puzzles in the level, transforming the first dungeon from a combat-focused experience into a more traditional puzzle-oriented Zelda dungeon experience.
+
+d. When players encounter the custom level, they will think about how to use the portal gun, where to place the portals to reach previously inaccessible areas, and how to utilize the portals and special terrain (like water and walls) to overcome obstacles and obtain keys.
+
+e. Inspired by the game "Portal," our guidance method is similar. The bullets come in only two colors, which means there can be at most two portals; firing one portal will cause the matching portal to disappear. In the first room where players acquire the portal gun, we implemented a strict chamber design. If players fail to realize that they can use the portal gun to bypass the water tile, they will never be able to reach the next level. The use of the portal gun is quite intuitive, so we believe that extensive teaching is unnecessary, and players will be able to master it on their own.
+
+f. https://vicschmitt.github.io/Portfolio494/ 
+https://damianzhang01.github.io/Zelda-Remake-Porfolio/
