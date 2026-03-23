@@ -1,71 +1,630 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhenyu Zhang - Game Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<!-- TODO: Replace Mr. Miyamoto's name with yours -->
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #1e1e35;
+            --text-primary: #e8e8f0;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6a6a80;
+            --accent-1: #7c5cff;
+            --accent-2: #ff6b9d;
+            --accent-3: #00d4aa;
+            --border-color: rgba(124, 92, 255, 0.15);
+            --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --glow-purple: rgba(124, 92, 255, 0.3);
+            --glow-pink: rgba(255, 107, 157, 0.3);
+            --glow-green: rgba(0, 212, 170, 0.3);
+        }
 
-<h1>The Portfolio of Zhenyu Zhang</h1>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
 
+        /* Background animated gradient */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
 
-<h2>The Legend of Zelda(1986) Remake</h2>
-<h3>Description</h3>
-We remake the first dungeon of The Legend of Zelda (1986), and customize it with a portal gun! When you reach the original destination, you'll find that there is no triforce, but a portal gun! Grab it and solve the additional puzzles!
+        .bg-gradient::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--glow-purple), transparent 70%);
+            top: -200px;
+            right: -100px;
+            animation: float1 20s ease-in-out infinite;
+        }
 
-<h3>Controls</h3>
-<li>Arrow Keys: Move</li>
-<li>X: Use Sword</li>
-<li>Z: Use Item</li>
-<li>Space: Swap Items</li>
-<li>1: Cheat Mode</li>
-<h3>How to play</h3>
-<ul></ul>
+        .bg-gradient::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--glow-pink), transparent 70%);
+            bottom: -150px;
+            left: -100px;
+            animation: float2 25s ease-in-out infinite;
+        }
 
-<li><a href="https://vicschmitt.itch.io/link-is-thinking-with-portals">Play Online</a></li>
-<li><a href="https://zzydipper.itch.io/link-with-the-portalgun">Win/Mac Downloadables</a></li>
-<h3>Contributions</h3>
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(-80px, 100px); }
+            66% { transform: translate(50px, -50px); }
+        }
 
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(60px, -80px); }
+            66% { transform: translate(-40px, 60px); }
+        }
 
-<h2>JumpJumpDash!</h2>
-<h3>Description</h3>
-This is a puzzle-solving platform games, you need to find and get a gem in every level!
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 24px 60px;
+            position: relative;
+        }
 
-<h3>Controls</h3>
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: rgba(124, 92, 255, 0.1);
+            border: 1px solid var(--border-color);
+            color: var(--accent-1);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
 
-<li>Arrow Keys: Move</li>
-<li>Space: Jump</li>
-<li>Shift: Dash</li>
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-1) 50%, var(--accent-2) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-See details in game.
-<h3>How to play</h3>
-<ul></ul>
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 auto;
+        }
 
-<li><a href="https://zzydipper.itch.io/jumpjumpdash">Play Online</a></li>
-<li><a href="https://zzydipper.itch.io/jumpjumpdash">Win/Mac Downloadables</a></li>
+        .scroll-indicator {
+            margin-top: 48px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            animation: bounce 2s ease-in-out infinite;
+        }
 
-<h3>Guidance</h3>
-<li><a href="https://drive.google.com/drive/folders/11J4_ILJ2-C8Ze5gelHUWtdUm_Kbt4TLg?usp=drive_link">If you find this game difficult, you can refer to these videos.</a></li>
-<h3>Contributions</h3>
+        .scroll-indicator svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-muted);
+        }
 
-<h2>Monster Munchies!</h2>
-<h3>Description</h3>
-Monster Munchies is a laid-back construction and management sim where you run a cozy restaurant by day and gather fresh ingredients through hunting or fishing at night. You’ll juggle recipes, customer happiness, and upgrades to keep business booming. The blend of cooking, resource gathering, and strategic choices makes for a fun, lighthearted experience.
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
 
-<h3>Controls</h3>
+        /* Main Content */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px 100px;
+        }
 
-<li>Arrow Keys: Move</li>
-<li>Attack And Dash: Mouse</li>
+        /* Section Title */
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-1);
+            margin-bottom: 48px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
 
-See details in game.
-<h3>How to play</h3>
-<ul></ul>
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border-color), transparent);
+        }
 
-<li><a href="https://zzydipper.itch.io/monstermunchies">Win/Mac Downloadables</a></li>
+        /* Game Card */
+        .game-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
 
-<h3>Official Trailor</h3>
+        .game-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--card-shadow);
+        }
 
-<li><a href="https://www.youtube.com/watch?v=6TUSXJo5jjA&ab_channel=YichenCai">Watch Trailor</a></li>
+        .game-card:nth-child(1) { border-top: 2px solid var(--accent-1); }
+        .game-card:nth-child(1):hover { border-color: var(--accent-1); box-shadow: 0 8px 40px var(--glow-purple); }
 
-<h3>Contributions</h3>
-<!-- TODO: Erase one of these two. Replace the 'href' link below with a link to your WebGL build page. -->
+        .game-card:nth-child(2) { border-top: 2px solid var(--accent-2); }
+        .game-card:nth-child(2):hover { border-color: var(--accent-2); box-shadow: 0 8px 40px var(--glow-pink); }
 
-<!-- TIP: Rename this file "index.html", and it will become the default landing page whenever someone navigates their browser to your domain. -->
+        .game-card:nth-child(3) { border-top: 2px solid var(--accent-3); }
+        .game-card:nth-child(3):hover { border-color: var(--accent-3); box-shadow: 0 8px 40px var(--glow-green); }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(180deg, rgba(124, 92, 255, 0.03) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .game-card:nth-child(2)::before {
+            background: linear-gradient(180deg, rgba(255, 107, 157, 0.03) 0%, transparent 100%);
+        }
+
+        .game-card:nth-child(3)::before {
+            background: linear-gradient(180deg, rgba(0, 212, 170, 0.03) 0%, transparent 100%);
+        }
+
+        /* Game Cover Banner */
+        .game-cover {
+            margin: -40px -40px 28px -40px;
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .game-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .game-card:hover .game-cover img {
+            transform: scale(1.03);
+        }
+
+        .game-cover::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to top, var(--bg-card) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .game-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .game-card h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .game-card:nth-child(1) h2 { color: #b8a4ff; }
+        .game-card:nth-child(2) h2 { color: #ffaac4; }
+        .game-card:nth-child(3) h2 { color: #66e8d0; }
+
+        .game-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 32px;
+            max-width: 800px;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .info-block {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px 24px;
+        }
+
+        .info-block h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .info-block ul {
+            list-style: none;
+        }
+
+        .info-block li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .key {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 28px;
+            height: 24px;
+            padding: 0 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-family: 'Space Grotesk', monospace;
+        }
+
+        .info-block p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Action Buttons */
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .btn-primary {
+            background: var(--accent-1);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #6a4ae8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px var(--glow-purple);
+        }
+
+        .game-card:nth-child(2) .btn-primary {
+            background: var(--accent-2);
+        }
+
+        .game-card:nth-child(2) .btn-primary:hover {
+            background: #e8558a;
+            box-shadow: 0 4px 20px var(--glow-pink);
+        }
+
+        .game-card:nth-child(3) .btn-primary {
+            background: var(--accent-3);
+            color: #0a0a0f;
+        }
+
+        .game-card:nth-child(3) .btn-primary:hover {
+            background: #00b894;
+            box-shadow: 0 4px 20px var(--glow-green);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .game-cover {
+                margin: -28px -24px 20px -24px;
+                height: 200px;
+                border-radius: 20px 20px 0 0;
+            }
+
+            .game-card {
+                padding: 28px 24px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                justify-content: center;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-gradient"></div>
+
+<!-- Hero Section -->
+<header class="hero">
+    <span class="hero-badge">Game Developer & Designer</span>
+    <h1>The Portfolio of<br>Zhenyu Zhang</h1>
+    <p>A collection of games I've designed and developed, featuring creative mechanics and engaging gameplay experiences.</p>
+    <div class="scroll-indicator">
+        <span>SCROLL</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+    </div>
+</header>
+
+<!-- Games Section -->
+<main class="container">
+    <div class="section-title">Featured Projects</div>
+
+    <!-- Game 1: The Legend of Zelda Remake -->
+    <article class="game-card fade-in">
+        <div class="game-cover">
+            <img src="https://img.itch.zone/aW1nLzE3OTE4MzI5LnBuZw==/original/I0QKMq.png" alt="The Legend of Zelda (1986) Remake - Cover" loading="lazy">
+        </div>
+        <div class="game-number">Project 01</div>
+        <h2>The Legend of Zelda (1986) Remake</h2>
+        <p class="game-description">
+            We remake the first dungeon of The Legend of Zelda (1986), and customize it with a portal gun! When you reach the original destination, you'll find that there is no triforce, but a portal gun! Grab it and solve the additional puzzles!
+        </p>
+
+        <div class="info-grid">
+            <div class="info-block">
+                <h3>Controls</h3>
+                <ul>
+                    <li><span class="key">Arrow</span> Move</li>
+                    <li><span class="key">X</span> Use Sword</li>
+                    <li><span class="key">Z</span> Use Item</li>
+                    <li><span class="key">Space</span> Swap Items</li>
+                    <li><span class="key">1</span> Cheat Mode</li>
+                </ul>
+            </div>
+            <div class="info-block">
+                <h3>How to Play</h3>
+                <p>Navigate through the dungeon, defeat enemies, and find the portal gun to solve creative puzzles across custom-designed rooms.</p>
+            </div>
+        </div>
+
+        <div class="actions">
+            <a href="https://vicschmitt.itch.io/link-is-thinking-with-portals" class="btn btn-primary" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Play Online
+            </a>
+            <a href="https://zzydipper.itch.io/link-with-the-portalgun" class="btn btn-secondary" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Win/Mac Download
+            </a>
+        </div>
+    </article>
+
+    <!-- Game 2: JumpJumpDash! -->
+    <article class="game-card fade-in">
+        <div class="game-cover">
+            <img src="https://img.itch.zone/aW1nLzE4MTU1MTI4LnBuZw==/original/RMySyW.png" alt="JumpJumpDash! - Cover" loading="lazy">
+        </div>
+        <div class="game-number">Project 02</div>
+        <h2>JumpJumpDash!</h2>
+        <p class="game-description">
+            This is a puzzle-solving platform game, you need to find and get a gem in every level!
+        </p>
+
+        <div class="info-grid">
+            <div class="info-block">
+                <h3>Controls</h3>
+                <ul>
+                    <li><span class="key">Arrow</span> Move</li>
+                    <li><span class="key">Space</span> Jump</li>
+                    <li><span class="key">Shift</span> Dash</li>
+                </ul>
+                <p style="margin-top: 8px; font-size: 0.85rem; color: var(--text-muted);">See details in game.</p>
+            </div>
+            <div class="info-block">
+                <h3>Guidance</h3>
+                <p>If you find this game difficult, you can refer to <a href="https://drive.google.com/drive/folders/11J4_ILJ2-C8Ze5gelHUWtdUm_Kbt4TLg?usp=drive_link" style="color: var(--accent-2); text-decoration: underline;" target="_blank" rel="noopener">these walkthrough videos</a>.</p>
+            </div>
+        </div>
+
+        <div class="actions">
+            <a href="https://zzydipper.itch.io/jumpjumpdash" class="btn btn-primary" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Play Online
+            </a>
+            <a href="https://zzydipper.itch.io/jumpjumpdash" class="btn btn-secondary" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Win/Mac Download
+            </a>
+        </div>
+    </article>
+
+    <!-- Game 3: Monster Munchies! -->
+    <article class="game-card fade-in">
+        <div class="game-cover">
+            <img src="https://img.itch.zone/aW1hZ2UvMzEwMTMwMC8xODkyMjQ1NS5wbmc=/original/UY%2F2rt.png" alt="Monster Munchies! - Cover" loading="lazy">
+        </div>
+        <div class="game-number">Project 03</div>
+        <h2>Monster Munchies!</h2>
+        <p class="game-description">
+            Monster Munchies is a laid-back construction and management sim where you run a cozy restaurant by day and gather fresh ingredients through hunting or fishing at night. You'll juggle recipes, customer happiness, and upgrades to keep business booming. The blend of cooking, resource gathering, and strategic choices makes for a fun, lighthearted experience.
+        </p>
+
+        <div class="info-grid">
+            <div class="info-block">
+                <h3>Controls</h3>
+                <ul>
+                    <li><span class="key">Arrow</span> Move</li>
+                    <li><span class="key">Mouse</span> Attack and Dash</li>
+                </ul>
+                <p style="margin-top: 8px; font-size: 0.85rem; color: var(--text-muted);">See details in game.</p>
+            </div>
+            <div class="info-block">
+                <h3>Official Trailer</h3>
+                <p>Watch the <a href="https://www.youtube.com/watch?v=6TUSXJo5jjA&ab_channel=YichenCai" style="color: var(--accent-3); text-decoration: underline;" target="_blank" rel="noopener">official trailer on YouTube</a> to see the game in action.</p>
+            </div>
+        </div>
+
+        <div class="actions">
+            <a href="https://zzydipper.itch.io/monstermunchies" class="btn btn-primary" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Win/Mac Download
+            </a>
+            <a href="https://www.youtube.com/watch?v=6TUSXJo5jjA&ab_channel=YichenCai" class="btn btn-secondary" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Watch Trailer
+            </a>
+        </div>
+    </article>
+</main>
+
+<footer>
+    <p>Zhenyu Zhang &mdash; Game Portfolio</p>
+</footer>
+
+<script>
+    // Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
 </html>
-
